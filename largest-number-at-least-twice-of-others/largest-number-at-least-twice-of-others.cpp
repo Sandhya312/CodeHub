@@ -1,25 +1,20 @@
 class Solution {
 public:
     int dominantIndex(vector<int>& nums) {
-       int n = nums.size() ;
-        int lar = nums[0];
-        int in = 0 ;
-        for(int i=1 ; i<n ; i++)
-        {
-           if(lar<nums[i])
-           {
-               lar = nums[i] ;
-               in = i ;
-           }
-        }   
-        for(int j=0 ; j<n ; j++)
-        {
-            if(in!=j && nums[j]>lar/2)
-            {
-               return -1 ;
+        int max = nums[0];
+        int idx = 0;
+        for(int i=1;i<nums.size();i++){
+            if(nums[i]>max){
+                max = nums[i];
+                idx=i;
             }
         }
-        return in ;
+        for(int j=0;j<nums.size();j++){
+            if(max !=nums[j] && idx !=j){
+                if(nums[j]>max/2) return -1;
+            }
+        }
+        return idx;
     }
 };
 
