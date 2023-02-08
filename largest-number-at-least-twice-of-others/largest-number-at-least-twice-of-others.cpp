@@ -11,7 +11,7 @@ public:
         }
         for(int j=0;j<nums.size();j++){
             if(max !=nums[j]){
-                if(nums[j]>max/2) return -1;
+                if(max/2<nums[j]) return -1;
             }
         }
         return idx;
